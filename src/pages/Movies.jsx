@@ -14,7 +14,7 @@ const Movies = () => {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${query}`
       );
-      setMovies(data.Search || []);
+      setMovies((data.Search || []).slice(0, 6));
     } catch (error) {
       console.error("Error fetching movies:", error);
     }
